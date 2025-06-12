@@ -1,6 +1,6 @@
 # Github Starred to Pinboard sync script
 
-This script syncs your starred repositories from GitHub to Pinboard.
+This script syncs your starred repositories from Github to Pinboard.
 
 ## Getting Started
 
