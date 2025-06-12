@@ -22,10 +22,10 @@ def get_starred_repos(limit: int | None = None, verbose: bool = False):
     page = 1
     while True:
         if verbose:
-            typer.echo(f"Fetching page {page} of starred repos from GitHub...")
+            typer.echo(f"Fetching page {page} of starred repos from Github...")
         r = requests.get(GITHUB_API, auth=(GITHUB_USERNAME, GITHUB_TOKEN), params={"page": page, "per_page": 100})
         if r.status_code != 200:
-            typer.echo(f"GitHub error: {r.status_code}")
+            typer.echo(f"Github error: {r.status_code}")
             break
         page_repos = r.json()
         if not page_repos:
@@ -88,7 +88,7 @@ def sync(
     dry_run: bool = typer.Option(False, help="Simulate the sync without calling Pinboard"),
     verbose: bool = typer.Option(False, help="Show detailed output during sync"),
 ):
-    """Sync GitHub starred repositories to Pinboard."""
+    """Sync Github starred repositories to Pinboard."""
     repos = get_starred_repos(limit=only_latest, verbose=verbose)
     success_count = 0
 
