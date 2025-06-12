@@ -13,7 +13,7 @@ This script syncs your starred repositories from GitHub to Pinboard.
    ```
 3. Run the script:
    ```
-   poetry run python sync_github_starred_to_pinboard.py
+   poetry run python src/github_to_pinboard/sync.py 
    ```
 
 ## Options
