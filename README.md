@@ -11,8 +11,8 @@ This script syncs your starred repositories from Github to your [Pinboard](https
 
 2. **Create a `.env` file** in the root directory with the following variables:
    ```env
-   GH_USERNAME=your_github_username
-   GH_TOKEN=your_github_token  # Needs `public_repo` scope at minimum
+   GITHUB_USERNAME=your_github_username
+   GITHUB_TOKEN=your_github_token  # Needs `public_repo` scope at minimum
    PINBOARD_TOKEN=username:API_token  # Get it at https://pinboard.in/settings/password
    ```
 
@@ -42,7 +42,7 @@ You can automate syncing by setting up a cron job. Example: sync every 15 minute
 
 > Make sure `poetry` is available in your shell's PATH when run from cron.
 
-A sample cron job entry using Github Actions is also available in the `.github/workflows/sync.yml` file.
+A sample cron job entry using Github Actions is also available in the `.github/workflows/sync.yml` file. (Note that Github's secrets can't start with `GITHUB_`, so they're named `GH_USERNAME` and `GH_TOKEN` in that file.)
 
 ## Shell Completion (Optional)
 

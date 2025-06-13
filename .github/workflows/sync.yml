@@ -28,7 +28,7 @@ jobs:
 
       - name: Run sync script
         env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           PINBOARD_TOKEN: ${{ secrets.PINBOARD_TOKEN }}
         run: poetry run python src/github_to_pinboard/sync.py
