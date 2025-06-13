@@ -7,25 +7,25 @@ load_dotenv()
 
 app = typer.Typer()
 
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GH_USERNAME = os.getenv("GH_USERNAME")
+GH_TOKEN = os.getenv("GH_TOKEN")
 PINBOARD_TOKEN = os.getenv("PINBOARD_TOKEN")
 
-GITHUB_API = f"https://api.github.com/users/{GITHUB_USERNAME}/starred"
+GITHUB_API = f"https://api.github.com/users/{GH_USERNAME}/starred"
 PINBOARD_API = "https://api.pinboard.in/v1/posts/add"
 
 def get_starred_repos(limit: int | None = None, verbose: bool = False):
-    if not GITHUB_USERNAME or not GITHUB_TOKEN:
-        typer.echo("Please set GITHUB_USERNAME and GITHUB_TOKEN in your environment variables.")
+    if not GH_USERNAME or not GH_TOKEN:
+        typer.echo("Please set GH_USERNAME and GH_TOKEN in your environment variables.")
         raise typer.Exit(code=1)
     repos = []
     page = 1
     while True:
         if verbose:
-            typer.echo(f"Fetching page {page} of starred repos from Github...")
-        r = requests.get(GITHUB_API, auth=(GITHUB_USERNAME, GITHUB_TOKEN), params={"page": page, "per_page": 100})
+            typer.echo(f"Fetching page {page} of starred repos from GitHub...")
+        r = requests.get(GITHUB_API, auth=(GH_USERNAME, GH_TOKEN), params={"page": page, "per_page": 100})
         if r.status_code != 200:
-            typer.echo(f"Github error: {r.status_code}")
+            typer.echo(f"GitHub error: {r.status_code}")
             break
         page_repos = r.json()
         if not page_repos:
