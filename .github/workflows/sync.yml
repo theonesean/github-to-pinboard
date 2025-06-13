@@ -31,4 +31,4 @@ jobs:
           GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PINBOARD_TOKEN: ${{ secrets.PINBOARD_TOKEN }}
-        run: poetry run python src/github_to_pinboard/sync.py sync
+        run: poetry run python src/github_to_pinboard/sync.py

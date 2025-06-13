@@ -18,7 +18,7 @@ This script syncs your starred repositories from Github to your [Pinboard](https
 
 3. **Run the sync script**
    ```bash
-   poetry run python src/github_to_pinboard/sync.py sync
+   poetry run python src/github_to_pinboard/sync.py
    ```
 
 ## CLI Options
@@ -29,7 +29,7 @@ This script syncs your starred repositories from Github to your [Pinboard](https
 
 Example:
 ```bash
-poetry run python src/github_to_pinboard/sync.py sync --only-latest 5 --dry-run
+poetry run python src/github_to_pinboard/sync.py --only-latest 5 --dry-run
 ```
 
 ## Running Automatically with Cron
@@ -37,7 +37,7 @@ poetry run python src/github_to_pinboard/sync.py sync --only-latest 5 --dry-run
 You can automate syncing by setting up a cron job. Example: sync every 15 minutes.
 
 ```cron
-*/15 * * * * cd /path/to/github_to_pinboard && poetry run python src/github_to_pinboard/sync.py sync >> /tmp/github_sync.log 2>&1
+*/15 * * * * cd /path/to/github_to_pinboard && poetry run python src/github_to_pinboard/sync.py >> /tmp/github_sync.log 2>&1
 ```
 
 > Make sure `poetry` is available in your shell's PATH when run from cron.
